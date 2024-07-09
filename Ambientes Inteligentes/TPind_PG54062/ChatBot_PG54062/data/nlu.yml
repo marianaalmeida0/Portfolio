@@ -1,0 +1,255 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - olá
+    - oi
+    - ola
+    - ola
+    - estas aí
+    - boa tarde
+    - boa noite
+    - bom dia
+    - hey there
+    - boas
+    - ola
+
+    
+- intent: goodbye
+  examples: |
+    - adeus
+    - bye
+    - chau
+    - tchau
+    - bye bye
+    - até breve
+    - ate logo
+    - até à próxima vez
+    - até já
+- intent: bot_challenge
+  examples: |
+    - Tu és um bot?
+    - Tu és um humano?
+    - Estou a falar com um bot?
+    - Estou a falar com um humano?
+    - quem es?
+
+- intent: out
+  examples: |
+    - não é o que quero saber
+    - isso não o mais correto
+    - recomenda me um filme para ver
+    - para
+    - nao estás a ajudar
+    - isso não ajudou
+    - quantos anos tens?
+    - quero encomender uma piza
+    - como vai estar o tempo hoje?
+
+- intent: informar_acidente
+  examples: |
+    - ocorreu um acidente automóvel, o que faço?
+    - acidente carro
+    - o que devo fazer quando há um acidente de carro?
+    - ocorreu um acidente, nao sei o que fazer
+    - eu acho que occorreu um acidente, o que faco?
+    - o meu amigo teve um acidente de carro
+    - acidente
+    - estou no acidente, o que devo fazer
+    - Acabei de presenciar um acidente
+    
+
+- intent: informar_nenhuma
+  examples: |
+    - a vítima nao apresenta nenhuma lesao ou stress visivel
+    - nenhuma
+    - nao tem nada
+    - nada
+    
+- intent: informar_fratura
+  examples: |
+    - Fratura
+    - a vítima tem o osso partido
+    - perna partida
+    - fratura do osso da pé
+    - parti um osso.
+    - sofri uma fratura
+    - parti uma perna
+    - acho que o meu amigo partiu um braço
+    - o meu amigo sofreu uma fratura
+    - estou com muitas dores, acho que parti alguma coisa
+    - acho que parti a coluna
+
+- intent: informar_corte
+  examples: |
+    - corte
+    - a vítima tem uma hemorragia
+    - so vejo sangue
+    - cortada
+    - corte profundo
+    - O que fazer em caso de cortes?
+    - Como curar cortes?
+    - Qual medicamento aplicar para cortes?
+    - O que aplicar em cortes?
+    - Cortes.
+    - Corte.
+    - Mia, como trato alguém com cortes?
+    - Eu cortei-me gravemente.
+    - Tratamento para um corte.
+    - Um vidro cortou-o.
+    - Um objeto de vidro cortou-o.
+    - Um objeto afiado cortou-o gravemente.
+
+- intent: informar_stress
+  examples: |
+    - stress
+    - acho que a vítima esta stressada
+    - muito stressada
+    - quadro de stress
+    - Estou sozinho, ficarias comigo enquanto eu estiver stressado?
+    - Estou realmente em stress.
+    - Estou muito stressado.
+    - Estou em pânico.
+    - Acho que estou stressado.
+    - Estou stressada.
+    - Estou stressada.
+    - Stress.
+
+- intent: informar_choque
+  examples: |
+    - choque
+    - a vitima nao fala
+    - esta chocada
+    - esta em choque
+    - nao sei, mas acho q esta em choque
+    - Como trato uma pessoa em choque?
+    - O que faço com uma pessoa em choque?
+    - Alguém está em choque, o que devo fazer?
+    - Tratamento para choque?
+    - Tratamento para uma pessoa em choque?
+    - O meu amigo entrou em choque e não sei o que fazer.
+    - Ela entrou em choque.
+
+- intent: informar_outro
+  examples: |
+    - dor abdominal
+    - avc
+    - ataque fuminante
+    - outra
+    - outro
+
+
+- intent: posicao_lateral_segurança
+  examples: |
+    - Como coloco uma vítima na posição lateral de segurança?
+    - Qual é a posição para a posição de segurança?
+    - Qual é a posição mais segura para a segurança de um vítima?
+    - O que é posição de segurança?
+    - Como a coloco na posição de segurança?
+    - Posição de segurança.
+    - Como coloco alguém na posição de segurança?
+    - Como coloco a pessoa na posição lateral de segurança?
+
+- intent: reanimacao
+  examples: |
+    - como faco reanimacao?
+    - a pessoa não esta a respirar, como faco reanimacao?
+    - como fazer reanimacao
+
+- intent: emergencia_pessoa_consciente
+  examples: |
+    - Como lidar com uma emergência para uma pessoa consciente?
+    - Há uma pessoa consciente num acidente, o que devo fazer?
+    - O que fazer por uma vítima consciente?
+    - O que fazer se uma vítima estiver consciente?
+    - Pessoa consciente
+
+- intent: emergencia_pessoa_inconsciente
+  examples: |
+    - Como lidar com uma emergência para uma pessoa inconsciente?
+    - Há uma pessoa inconsciente num acidente, o que devo fazer?
+    - O que fazer por uma pessoa inconsciente?
+    - O que fazer se uma pessoa estiver inconsciente?
+    - Pessoa inconsciente
+
+- intent: ligar_112
+  examples: |
+    - Ligue ao 112, por favor
+    - Chama o 112
+    - 112
+    - Liga ao inem
+
+- intent: nome_vitima
+  examples: |
+    - o nome é [Mariana](inem)
+    - [Mariana Almeida](inem)
+    - Nao sei
+    - O nome da vítima é [Luisa Sousa](inem)
+    - nome é [julio](inem)
+    - [julio martins](inem)
+    - [mauricio](inem)
+    - [carlos](inem)
+    - o nome é [cesar](inem)
+    - [sandra](inem)
+    - [Carolina Moura](inem)
+    - [angelo](inem)
+
+- intent: sexo_vitima
+  examples: |
+    - [feminino](inem)
+    - [masculino](inem)
+    - [F](inem)
+    - [M](inem)
+    - [f](inem)
+    - [m](inem)
+    - sexo [feminino](inem)
+    - [macho](inem)
+    - [Feminino](inem)
+   
+
+- intent: idade_vitima
+  examples: |
+    - [22](inem)
+    - [23](inem)
+    - [21](inem) anos
+    - [22](inem) anos de idade
+    - [10](inem)
+    - [13](inem)
+    - [30](inem)
+
+- intent: estado_consciencia
+  examples: |
+    - [sim](inem)
+    - [nao](inem)
+    - [nao sei](inem)
+    - [talvez](inem)
+    - [muito provavelmente](inem)
+    - [nao faco ideia](inem)
+    - [sim esta](inem)
+    - [esta sim](inem)
+    - [esta](inem)
+
+- intent: localizacao
+  examples: |
+    - [Rua da Flores,5470-311 Mourilhe](inem)
+    - [Rua da Cha, 4705-210](inem)
+    - [Travessa Do Biqueiro, 4709-211, Soutelinho](inem)
+    - [Avenidade da Liberdade, Beco 2 Braga](inem)
+    - [Avenida S. Nostra 5480-211, Lamas](inem)
+    - [Rua das Margaridas,CEP 12345-678, Cidade Floriana](inem)
+    - [Avenida dos Girassóis, CEP 98765-432, Cidade Solaris](inem)
+    - [Travessa das Orquídeas,CEP 54321-876, Cidade Primavera](inem)
+    - [Praça das Violetas, CEP 23456-789, Cidade Aurora](inem)
+    - [Alameda das Rosas, 987, Cidade Radiante](inem)
+
+- intent: request_names
+  examples: |
+    - Quero te dizer o meu nome
+    - precisas do meu nome?
+    - queres saber o meu nome?
+    - sabes o meu nome?
+    - qual o meu nome?
+    - a ver se sabes como me chamo.
+    - chamo-me como?
+    

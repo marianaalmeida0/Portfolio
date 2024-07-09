@@ -1,0 +1,48 @@
+{
+    "123": {
+        "Nome": "martins^monica",
+        "Data de nascimento": "20020227",
+        "Genero": "F",
+        "Pedidos": {
+            "897189": {
+                "Tipo de pedido": "RX",
+                "Status": "",
+                "Order Control": "NW",
+                "Data de transacao": "2024-03-30T20:31:07.118481",
+                "OBR": "incidencia",
+                "OBX": ""
+            },
+            "877774": {
+                "Tipo de pedido": "incidencia",
+                "Status": "CM",
+                "Data de transacao": "2024-03-30T20:31:52.455582",
+                "Order Control": "SC",
+                "OBR": "\nOBR|01|877774|877774|incidencia||||||||||||||CR|incidencia||||||||^^^2024-03-30T20:31:52.455582^^",
+                "OBX": ""
+            }
+        }
+    },
+    "1234": {
+        "Nome": "xonc",
+        "Data de nascimento": "12341234",
+        "Genero": "F",
+        "Pedidos": {
+            "189162": {
+                "Tipo de pedido": "rfer",
+                "Status": "",
+                "Order Control": "NW",
+                "Data de transacao": "2024-04-02T13:27:41.271365",
+                "OBR": "32",
+                "OBX": ""
+            },
+            "189162": {
+                "Tipo de pedido": "\nOBR",
+                "Status": "CM",
+                "Data de transacao": "2024-04-02T13:29:04.905489",
+                "Order Control": "RE",
+                "OBR": "\nOBR|01|189162|189162|\nOBR|01|189162|189162|32||||||||||||||CR|rfer||||||||^^^2024-04-02T13:27:41.271365^^||||||||||||||CR|32||||||||^^^2024-04-02T13:29:04.905489^^",
+                "OBX": "\nOBX|1|PDF_BASE64|||ta tudo bw,|||||||||20150603012318"
+            }
+        }
+    }
+}

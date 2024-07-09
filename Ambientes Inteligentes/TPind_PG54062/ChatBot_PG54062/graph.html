@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style id="graph-style">
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.getElementById('graph-style').sheet.cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_consciente_inconsciente];
+2 [class="", fontsize=12, label=utter_emergencia_pessoa_consciente];
+3 [class="", fontsize=12, label=utter_tipo_lesao];
+4 [class="", fontsize=12, label=utter_primeiros_socorros_fratura];
+5 [class="", fontsize=12, label=utter_112];
+6 [class="", fontsize=12, label=utter_primeiros_socorros_nenhuma];
+8 [class="", fontsize=12, label=utter_primeiros_socorros_corte];
+10 [class="", fontsize=12, label=utter_primeiros_socorros_stress];
+12 [class="", fontsize=12, label=utter_primeiros_socorros_outro];
+14 [class="", fontsize=12, label=utter_primeiros_socorros_choque];
+16 [class="", fontsize=12, label="utter_posicao_lateral_segurança"];
+17 [class="", fontsize=12, label=utter_pergunta_respiracao];
+19 [class="", fontsize=12, label=utter_reanimacao];
+20 [class="", fontsize=12, label=utter_rean_adulto];
+22 [class="", fontsize=12, label=utter_rean_crianca];
+24 [class="", fontsize=12, label=utter_rean_bebe];
+26 [class="", fontsize=12, label=utter_no_injuries_response];
+27 [class="", fontsize=12, label="utter_posicao_lateral_segurança"];
+33 [class="", fontsize=12, label=utter_nao_ligar];
+34 [class="", fontsize=12, label=utter_pergunta_nome_vitima];
+35 [class="", fontsize=12, label=utter_pergunta_sexo_vitima];
+36 [class="", fontsize=12, label=utter_pergunta_idade_vitima];
+37 [class="", fontsize=12, label=utter_pergunta_estado_consciencia];
+38 [class="", fontsize=12, label=utter_pergunta_localizacao_acidente];
+39 [class="", fontsize=12, label=action_extrair_dados_vitima];
+40 [class="", fontsize=12, label=action_get_slot_values];
+41 [class="", fontsize=12, label=utter_greet];
+42 [class="", fontsize=12, label=utter_out];
+43 [class="", fontsize=12, label=utter_iamabot];
+45 [class="", fontsize=12, label=name_form];
+46 [class="", fontsize=12, label=utter_slots_values];
+47 [class="", fontsize=12, label=utter_informar_feridos];
+48 [class="", fontsize=12, label="..."];
+49 [class="", fontsize=12, label=utter_greet];
+51 [class="", fontsize=12, label=utter_goodbye];
+53 [class="", fontsize=12, label=name_form];
+57 [class=intent, fillcolor=lightblue, label="/informar_feridos_s", shape=rect, style=filled];
+58 [class=intent, fillcolor=lightblue, label="/pessoa_consciente", shape=rect, style=filled];
+59 [class=intent, fillcolor=lightblue, label="O que fazer por uma vítima consciente?", shape=rect, style=filled];
+60 [class=intent, fillcolor=lightblue, label="parti uma perna", shape=rect, style=filled];
+61 [class=intent, fillcolor=lightblue, label=nada, shape=rect, style=filled];
+62 [class=intent, fillcolor=lightblue, label="Tratamento para um corte.", shape=rect, style=filled];
+63 [class=intent, fillcolor=lightblue, label="Estou muito stressado.", shape=rect, style=filled];
+64 [class=intent, fillcolor=lightblue, label=outro, shape=rect, style=filled];
+65 [class=intent, fillcolor=lightblue, label="Alguém está em choque, o que devo fazer?", shape=rect, style=filled];
+66 [class=intent, fillcolor=lightblue, label="/pessoa_inconsciente", shape=rect, style=filled];
+67 [class=intent, fillcolor=lightblue, label="O que fazer por uma pessoa inconsciente?", shape=rect, style=filled];
+68 [class=intent, fillcolor=lightblue, label="/informar_nao_respira", shape=rect, style=filled];
+69 [class=intent, fillcolor=lightblue, label="como faco reanimacao?", shape=rect, style=filled];
+70 [class=intent, fillcolor=lightblue, label="/rean_adulto", shape=rect, style=filled];
+71 [class=intent, fillcolor=lightblue, label="/rean_crianca", shape=rect, style=filled];
+72 [class=intent, fillcolor=lightblue, label="/rean_bebe", shape=rect, style=filled];
+73 [class=intent, fillcolor=lightblue, label="/informar_feridos_n", shape=rect, style=filled];
+74 [class=intent, fillcolor=lightblue, label="Qual é a posição mais segura para a segurança de um vítima?", shape=rect, style=filled];
+75 [class=intent, fillcolor=lightblue, label="/nao_quero", shape=rect, style=filled];
+76 [class=intent, fillcolor=lightblue, label=112, shape=rect, style=filled];
+77 [class=intent, fillcolor=lightblue, label=boas, shape=rect, style=filled];
+78 [class=intent, fillcolor=lightblue, label="quantos anos tens?", shape=rect, style=filled];
+79 [class=intent, fillcolor=lightblue, label="Tu és um humano?", shape=rect, style=filled];
+80 [class=intent, fillcolor=lightblue, label="eu acho que occorreu um acidente, o que faco?", shape=rect, style=filled];
+81 [class=intent, fillcolor=lightblue, label="/informar_respira", shape=rect, style=filled];
+82 [class=intent, fillcolor=lightblue, label="nome é julio", shape=rect, style=filled];
+83 [class=intent, fillcolor=lightblue, label=feminino, shape=rect, style=filled];
+84 [class=intent, fillcolor=lightblue, label=13, shape=rect, style=filled];
+85 [class=intent, fillcolor=lightblue, label="esta sim", shape=rect, style=filled];
+86 [class=intent, fillcolor=lightblue, label="Avenida dos Girassóis, CEP 98765-432, Cidade Solaris", shape=rect, style=filled];
+87 [class=intent, fillcolor=lightblue, label="precisas do meu nome?", shape=rect, style=filled];
+88 [class=intent, fillcolor=lightblue, label="bom dia", shape=rect, style=filled];
+89 [class=intent, fillcolor=lightblue, label="até breve", shape=rect, style=filled];
+90 [class=intent, fillcolor=lightblue, label="queres saber o meu nome?", shape=rect, style=filled];
+0 -> 48  [class="", key=NONE, label=""];
+0 -> 57  [class="", key=0];
+0 -> 58  [class="", key=0];
+0 -> 59  [class="", key=0];
+0 -> 60  [class="", key=0];
+0 -> 61  [class="", key=0];
+0 -> 62  [class="", key=0];
+0 -> 63  [class="", key=0];
+0 -> 64  [class="", key=0];
+0 -> 65  [class="", key=0];
+0 -> 66  [class="", key=0];
+0 -> 67  [class="", key=0];
+0 -> 68  [class="", key=0];
+0 -> 69  [class="", key=0];
+0 -> 70  [class="", key=0];
+0 -> 71  [class="", key=0];
+0 -> 72  [class="", key=0];
+0 -> 73  [class="", key=0];
+0 -> 74  [class="", key=0];
+0 -> 75  [class="", key=0];
+0 -> 76  [class="", key=0];
+0 -> 77  [class="", key=0];
+0 -> 78  [class="", key=0];
+0 -> 79  [class="", key=0];
+0 -> 80  [class="", key=0];
+0 -> 81  [class="", key=0];
+1 -> "-1"  [class="", key=NONE, label=""];
+2 -> 3  [class="", key=NONE, label=""];
+3 -> "-1"  [class="", key=NONE, label=""];
+4 -> 5  [class="", key=NONE, label=""];
+5 -> "-1"  [class="", key=NONE, label=""];
+6 -> 5  [class="", key=NONE, label=""];
+8 -> 5  [class="", key=NONE, label=""];
+10 -> 5  [class="", key=NONE, label=""];
+12 -> 5  [class="", key=NONE, label=""];
+14 -> 5  [class="", key=NONE, label=""];
+16 -> 17  [class="", key=NONE, label=""];
+17 -> "-1"  [class="", key=NONE, label=""];
+19 -> "-1"  [class="", key=NONE, label=""];
+20 -> 5  [class="", key=NONE, label=""];
+22 -> 5  [class="", key=NONE, label=""];
+24 -> 5  [class="", key=NONE, label=""];
+26 -> "-1"  [class="", key=NONE, label=""];
+27 -> "-1"  [class="", key=NONE, label=""];
+33 -> "-1"  [class="", key=NONE, label=""];
+34 -> 82  [class="", key=0];
+35 -> 83  [class="", key=0];
+36 -> 84  [class="", key=0];
+37 -> 85  [class="", key=0];
+38 -> 86  [class="", key=0];
+39 -> 40  [class="", key=NONE, label=""];
+40 -> "-1"  [class="", key=NONE, label=""];
+41 -> "-1"  [class="", key=NONE, label=""];
+41 -> 87  [class="", key=0];
+42 -> "-1"  [class="", key=NONE, label=""];
+43 -> "-1"  [class="", key=NONE, label=""];
+45 -> 46  [class="", key=NONE, label=""];
+46 -> "-1"  [class="", key=NONE, label=""];
+47 -> "-1"  [class="", key=NONE, label=""];
+48 -> 45  [class="", key=NONE, label=""];
+48 -> 88  [class="", key=0];
+48 -> 89  [class="", key=0];
+48 -> 90  [class="", key=0];
+49 -> "-1"  [class="", key=NONE, label=""];
+51 -> "-1"  [class="", key=NONE, label=""];
+53 -> "-1"  [class="", key=NONE, label=""];
+57 -> 1  [class="", key=0];
+58 -> 2  [class="", key=0];
+59 -> 2  [class="", key=0];
+60 -> 4  [class="", key=0];
+61 -> 6  [class="", key=0];
+62 -> 8  [class="", key=0];
+63 -> 10  [class="", key=0];
+64 -> 12  [class="", key=0];
+65 -> 14  [class="", key=0];
+66 -> 16  [class="", key=0];
+67 -> 16  [class="", key=0];
+68 -> 19  [class="", key=0];
+69 -> 19  [class="", key=0];
+70 -> 20  [class="", key=0];
+71 -> 22  [class="", key=0];
+72 -> 24  [class="", key=0];
+73 -> 26  [class="", key=0];
+74 -> 27  [class="", key=0];
+75 -> 33  [class="", key=0];
+76 -> 34  [class="", key=0];
+77 -> 41  [class="", key=0];
+78 -> 42  [class="", key=0];
+79 -> 43  [class="", key=0];
+80 -> 47  [class="", key=0];
+81 -> 5  [class="", key=0];
+82 -> 35  [class="", key=0];
+83 -> 36  [class="", key=0];
+84 -> 37  [class="", key=0];
+85 -> 38  [class="", key=0];
+86 -> 39  [class="", key=0];
+87 -> 45  [class="", key=0];
+88 -> 49  [class="", key=0];
+89 -> 51  [class="", key=0];
+90 -> 53  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>

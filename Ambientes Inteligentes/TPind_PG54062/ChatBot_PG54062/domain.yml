@@ -1,0 +1,273 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - request_names
+  - out
+  - informar_acidente
+  - informar_feridos_s
+  - informar_feridos_n
+  - pessoa_consciente
+  - pessoa_inconsciente
+  - informar_nenhuma
+  - informar_fratura
+  - informar_stress
+  - informar_outro
+  - informar_choque
+  - informar_corte
+  - informar_respira
+  - informar_nao_respira
+  - rean_adulto
+  - rean_crianca
+  - rean_bebe
+  - posicao_lateral_segurança
+  - reanimacao
+  - emergencia_pessoa_inconsciente
+  - emergencia_pessoa_consciente
+  - ligar_112
+  - nome_vitima
+  - idade_vitima
+  - sexo_vitima
+  - localizacao
+  - estado_consciencia
+  - nao_quero
+  - primeiros
+ 
+
+forms:
+  name_form:
+    required_slots:
+      - first_name
+      - last_name
+
+entities:
+  - inem
+
+slots:
+  respostas:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: inem
+
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: first_name
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: last_name
+actions:
+  - action_extrair_dados_vitima
+  - action_get_slot_values
+  - utter_greet
+  - utter_slots_values
+
+  
+responses:
+  utter_greet:
+    - buttons:
+      - payload: /ligar_112
+        title: Chamar 112
+      - payload: /primeiros 
+        title: Primeiros Socorros
+      - payload: /informar_acidente
+        title: Reportar Acidente
+      text: |
+        Olá! Em que posso ajudar?
+
+  utter_goodbye:
+  - text: Adeus! Espero ter ajudado!
+
+  utter_iamabot:
+  - text: Eu sou a Mia, um chatbot de suporte a acidentes automóveis.
+
+  utter_ask_first_name:
+  - text: Qual é o teu primeiro nome?
+  utter_ask_last_name:
+  - text: Olá {first_name} diz me qual é o teu ultimo nome?
+  utter_slots_values:
+  - text: O teu nome é {first_name} {last_name}!
+
+  utter_out:
+  - text: Desculpa, não entendi a pergunta. Como posso ajudar?
+
+  utter_informar_feridos:
+    - text: Lamento ouvir isso. Existem feridos no local?
+      buttons:
+        - title: Sim
+          payload: /informar_feridos_s
+        - title: Não
+          payload: /informar_feridos_n
+  
+  utter_no_injuries_response:
+    - text: Ainda bem! Posso fazer alguma coisa por você? Pretende que eu ligue para o 112 para relatar a ocorrência?
+  
+  utter_consciente_inconsciente:
+    - buttons:
+      - payload: /pessoa_consciente
+        title: consciente
+      - payload: /pessoa_inconsciente
+        title: inconsciente
+      text: |
+        A vítima está consciente ou inconsciente?
+        1. Antes de se aproximar da vítima, verifique se há sinais de perigo. Depois de confirmar que a área está segura, verifique se a vítima responde. Evite se tornar uma vítima você mesmo, pois não será útil ao paciente se estiver ferido.
+        2. Identifique primeiramente vítimas gravemente feridas, como aquelas que estão sangrando pela cabeça, nariz, pernas ou outros órgãos. Geralmente, as vítimas que conseguem falar ou gritar estão em melhor condição do que aquelas que não conseguem respirar ou gritar.
+        3. Verifique a consciência da vítima e seu pulso para determinar se está respirando. Mantenha a vítima consciente conversando com ela até a chegada da ajuda médica. 4. Faça perguntas simples, como seu nome, ou aplique pressão nos ombros da vítima. Se não houver resposta, a vítima está inconsciente. Se não puder garantir a segurança da área, chame o 112 para obter ajuda de emergência antes de prestar os primeiros socorros.
+
+  utter_emergencia_pessoa_consciente:
+  - text: |
+      Aproveitar o facto de a vítima estar ainda consciente para se conseguir o máximo de informações possível, pois em qualquer altura o estado de consciência pode-se alterar. 
+      O que devemos perguntar? 
+      1. Consegue mobilizar (mexer) os seus membros (braços e pernas)? 
+      2. Tem dores? Onde? Em que zonas do seu corpo? 
+      3. Tem sensibilidade no seu corpo (sente tocar no corpo)? 
+      4. Aonde estamos a tocar? 
+      5. Apresenta outras lesões?
+
+  utter_primeiros_socorros_fratura:
+    - text: |- 
+        FRATURA- 1ºS SOCORROS
+        a) Instalar a vítima em posição de conforto, sem lhe provocar movimentos e deslocações; 
+        b) Colocar o membro fracturado na posição mais natural possível e que não agrave a dor; 
+        c) Expor o foco de fractura, cortando a roupa que o envolve; 
+        d) Controlar a hemorragia por compressão manual indirecta; 
+        e) Lidar com os topos ósseos visíveis como se fossem corpos estranhos encravados, protegendo-os com compressas esterilizadas se possível; 
+        f) Combater as complicações, sendo uma delas a infecção; 
+        g) Prevenir o Estado de Choque; 
+        h) Proceder à imobilização e à evacuação para uma unidade hospitalar.
+
+  utter_primeiros_socorros_corte:
+    - text: |-
+        CORTES- 1ºS SOCORROS
+        Lave o corte adequadamente para prevenir infecções e pare o sangramento aplicando pressão por 1-2 minutos até que o sangramento pare.
+        Aplique Vaselina para garantir que a ferida esteja húmida para uma cicatrização rápida. Finalmente, cubra o corte com um curativo estéril.
+        Analgésicos podem ser aplicados se a dor for intensa.
+
+  utter_primeiros_socorros_stress:
+    - text: Compreendo que possas estar em pânico, mas não te preocupes, a Mia está aqui contigo.
+    - text: Não te preocupes, estou aqui para ajudar
+    - text: Por favor, respira fundo e acalma-te, estou aqui contigo.
+
+  utter_primeiros_socorros_nenhuma:
+    - text: Ainda bem que a vítima não apresenta danos visíveis. Contudo, aconselho a ligar para o 112 / polícia para reportar o acidente e realizar exames adicionais para verificar se a vítima se encontra bem.
+    
+  utter_primeiros_socorros_outro:
+    - text: Lamento. Como assistente virtual, encontro-me limitada e apenas consigo prestar os primeiros socorros a determinadas lesões. No entanto,posso fazer alguma coisa mais por si. Pretende que chame o 112? 
+    
+  utter_primeiros_socorros_choque:
+    - text: |-
+        1. Deitar a Vítima, em decúbito dorsal (de costas)
+          a) Desapertar as roupas a nível do tronco;
+          b) Manter a temperatura corporal, evitando a hipotermia, cobrir com cobertores
+          c) Não dar de beber, podendo-se molhar os lábios
+        2. Verificar o estado de consciência, a ventilação e o pulso
+          a) Dar apoio psicológico, transmitindo confiança e segurança, em como tudo se vai resolver
+          b) No caso da vítima se encontrar inconsciente, colocar na Posição Lateral de Segurança
+  
+  utter_pergunta_respiracao:
+    - buttons:
+      - payload: /informar_respira
+        title: sim
+      - payload: /informar_nao_respira
+        title: nao
+      text: A vítima está a respirar? Se não estiver terá de proceder à reanimação.
+
+    
+  utter_reanimacao:
+    - buttons:
+      - payload: /rean_adulto
+        title: adulto
+      - payload: /rean_crianca
+        title: crianca
+      - payload: /rean_bebe
+        title: bebé
+      text: A reanimação será feita num adulto, numa criança (acima de 1 ano de idade) ou a um bebé (abaixo de 1 ano de idade)?
+
+  utter_rean_adulto:
+    - image: https://files.passeidireto.com/95cf7c0a-4a20-405d-9d6e-b8160c374b17/95cf7c0a-4a20-405d-9d6e-b8160c374b17.jpeg
+      text: |
+        REANIMACAO- 1ºS SOCORROS ADULTO
+        1. Certifique-se de que a vítima está numa superfície firme. Coloque-a de costas e ajoelhe-se ao lado do peito da vítima. Localize a metade inferior do esterno, no centro do peito.
+        2. Coloque o calcanhar de uma mão na metade inferior do esterno e o calcanhar da outra mão por cima da primeira mão. Entrelace os dedos das suas mãos e levante os dedos.
+        3. Posicione-se verticalmente acima do peito da vítima. Certifique-se de que os seus braços estão esticados e pressione o peito da vítima até que seja comprimido cerca de um terço.
+        4. Liberte a pressão. Pressionar para baixo e libertar é uma compressão. Dê 30 compressões seguidas de 2 respirações. As compressões devem ser feitas a uma taxa de duas compressões por segundo.
+        5. Pelo menos 5 conjuntos de 30 compressões e 2 respirações devem ser realizados em dois minutos e as interrupções devem ser minimizadas o máximo possível.
+        6. A RCP deve ser continuada até que a vítima comece a respirar normalmente, você não consiga continuar fisicamente, ajuda mais qualificada chegue e assuma o controlo ou um profissional de saúde indique que a RCP deve ser interrompida.
+
+  utter_rean_crianca: 
+    - image: https://files.passeidireto.com/95cf7c0a-4a20-405d-9d6e-b8160c374b17/95cf7c0a-4a20-405d-9d6e-b8160c374b17.jpeg
+      text: |
+        REANIMACAO- 1ºS SOCORROS CRIANÇA
+        1. Abra a via aérea da criança colocando uma mão na testa da criança e inclinando suavemente a cabeça para trás, levantando o queixo. Remova quaisquer obstruções visíveis da boca e do nariz.
+        2. Aperte o nariz da criança. Coloque sua boca sobre a boca da criança e sopre continuamente e firmemente em sua boca, verificando se o peito dela se eleva. Dê cinco respirações iniciais de resgate.
+        3. Coloque o calcanhar de uma mão no centro do peito da criança e pressione para baixo por 5 cm (cerca de duas polegadas), que é aproximadamente um terço do diâmetro do peito. A qualidade (profundidade) das compressões torácicas é muito importante. Use as duas mãos se não conseguir alcançar uma profundidade de 5 cm usando uma mão.
+        4. Após cada 30 compressões torácicas a uma taxa de 100 a 120 por minuto, dê duas respirações.
+        5. Continue com ciclos de 30 compressões torácicas e duas respirações de resgate até que a criança comece a se recuperar ou chegue ajuda de emergência.
+
+  utter_rean_bebe:
+    - image: https://files.passeidireto.com/95cf7c0a-4a20-405d-9d6e-b8160c374b17/95cf7c0a-4a20-405d-9d6e-b8160c374b17.jpeg
+      text: |
+        REANIMACAO- 1ºS SOCORROS BEBÉ
+        1. Abra a via aérea do bebê colocando uma mão em sua testa e inclinando suavemente a cabeça para trás, levantando o queixo. Remova quaisquer obstruções visíveis da boca e do nariz.
+        2. Coloque sua boca sobre a boca e o nariz do bebê e sopre continuamente e firmemente em sua boca, verificando se o peito dele se eleva. Dê cinco respirações iniciais de resgate.
+        3. Coloque dois dedos no meio do peito do bebê e pressione para baixo por 4 cm (cerca de 1,5 polegadas), que é aproximadamente um terço do diâmetro do peito. A qualidade (profundidade) das compressões torácicas é muito importante. Use o calcanhar de uma mão se não conseguir alcançar uma profundidade de 4 cm usando as pontas dos dois dedos.
+        4. Após 30 compressões torácicas a uma taxa de 100 a 120 por minuto, dê duas respirações de resgate.
+        5. Continue com ciclos de 30 compressões torácicas e duas respirações de resgate até que o bebê comece a se recuperar ou chegue ajuda de emergência.
+
+
+  utter_tipo_lesao:
+  - text: Que tipo de lesão / estado a vítima apresenta? Nenhuma | Fratura | Corte | Stress | Choque| Outra
+
+  utter_posicao_lateral_segurança: 
+    - image: https://static.tuasaude.com/media/article/sx/qz/posicao-lateral-de-seguranca_19220.jpg
+      text: | 
+        POSICAO LATERAL SEGURANÇA - 1ºS SOCORROS
+        Caso tenha a mais mínima suspeita que a vítima tenha uma lesão na espinha, NUNCA deve movimentá-la, a menos que esta esteja em perigo imediato de vida
+        Colocar a vítima na posição lateral de segurança
+        a) Girar lentamente o bloco cabeça/pescoço/tronco através de um movimento de báscula; puxar com suavidade a cabeça para trás, com a boca aberta; 
+        b) Ajeitar a perna que fica por cima, de forma a formar um ângulo recto; 
+        c) Manter a via aérea permeável, puxando a cabeça ligeiramente para trás de forma a evitar a queda da língua e aspiração de vómito; 
+        d) Cobrir a vítima; 
+        e) Vigiar a respiração e o pulso frequentemente; 
+        f) Ajeitar o ombro da vítima.
+
+  utter_112:
+    - buttons:
+      - payload: /ligar_112
+        title: Sim
+      - payload: /nao_quero
+        title: Não
+      text: Pretende que a sua assistente virtual ligue para o 112 e forneça as informações da ocorrência?
+
+  utter_nao_ligar:
+  - text: Aconselho a ligar para o 112 / polícia para reportar o acidente.
+
+  utter_pergunta_nome_vitima:
+  - text: Por favor, responda ao seguinte questionário para informar o 112 da ocorrência. Qual é o nome da vítima?
+  utter_pergunta_sexo_vitima:
+  - text: Qual é o sexo da vítima?
+  utter_pergunta_idade_vitima:
+  - text: Qual é a idade da vítima?
+  utter_pergunta_estado_consciencia:
+  - text: A vítima está consciente ? Responda Sim ou Nao
+  utter_pergunta_localizacao_acidente:
+  - text: Qual é a localização exata do acidente?
+  utter_chamada:
+  - text: Obrigada pelas informações. Entrarei em contacto com o 112 o mais rápido possível.
+ 
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

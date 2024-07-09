@@ -1,0 +1,947 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="nexus-font-support">
+
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="google" content="nositelinkssearchbox"/>
+    <title>
+        Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals
+     &mdash; Coventry University</title>
+    
+    
+    
+
+<meta property="og:site_name" content="Coventry University">
+
+
+    <meta property="og:title" content="Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals"/>
+
+
+<meta property="og:url" content="https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit">
+<meta property="og:locale" content="en_GB">
+
+
+
+
+    
+        <meta property="og:image" content="https://pureportal.coventry.ac.uk/skin/headerImage/">
+    
+
+
+
+
+    
+        <meta property="og:type" content="article">
+    
+
+    
+
+    
+
+
+    <link rel="stylesheet" href="/assets/application-5dc5d140de7893a8255374a716047ad3.css" />
+    <!-- OneTrust Cookies Consent Notice start -->
+<script async src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="a60b1787-ef88-433b-8d5e-4109e4200be7" data-document-language="true"></script>
+<script type="text/javascript">
+    function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end -->
+    
+    <link href="/skin/css/" rel="stylesheet"/>
+    
+    <script src="/skin/script/" type="text/javascript"></script>
+    <script type="text/javascript" src="/assets/application-66de6f9660526dc07b3a98335d9d00e6.js" ></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/html5shiv.min-ca5300beead9a4a9d2c9c584a9016410.js" ></script>
+    <script type="text/javascript" src="/assets/respond.min-678d372b349e434d9923e1b591f14a1e.js" ></script>
+    <![endif]-->
+    
+        
+        
+        <meta name="citation_title" content="Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals"></meta><meta name="citation_author" content="Sadaf Iqbal"></meta><meta name="citation_author_institution" content="Newcastle University"></meta><meta name="citation_author_institution" content="Newcastle upon Tyne NHS Hospitals Foundation Trust"></meta><meta name="citation_author" content="Jaume Bacardit"></meta><meta name="citation_author_institution" content="Newcastle University"></meta><meta name="citation_author" content="Bridget Griffiths"></meta><meta name="citation_author_institution" content="Newcastle upon Tyne NHS Hospitals Foundation Trust"></meta><meta name="citation_author" content="John Allen"></meta><meta name="citation_author_institution" content="Research Centre for Intelligent Healthcare (CIH)"></meta><meta name="citation_author_institution" content="Newcastle University"></meta><meta name="citation_author_institution" content="Newcastle upon Tyne NHS Hospitals Foundation Trust"></meta><meta name="citation_author_email" content="ad5325@coventry.ac.uk"></meta><meta name="citation_author_orcid" content="0000-0002-7263-0533"></meta><meta name="citation_publication_date" content="2023/09/13"></meta><meta name="citation_online_date" content="2023/09/13"></meta><meta name="citation_pdf_url" content="https://pureportal.coventry.ac.uk/files/76868799/Published.pdf"></meta><meta name="citation_online_date" content="2023/09/13"></meta><meta name="citation_doi" content="10.3389/fphys.2023.1242807"></meta><meta name="citation_language" content="English"></meta><meta name="citation_keywords" content="deep learning; machine learning; photoplethysmography; pulse; Raynaud’s; scleroderma; systemic sclerosis"></meta><meta name="citation_journal_title" content="Frontiers in Physiology"></meta><meta name="citation_issn" content="1664-042X"></meta><meta name="citation_journal_abbrev" content="Frontiers in Psychology"></meta><meta name="citation_publisher" content="Frontiers Media"></meta><meta name="citation_volume" content="14"></meta><meta name="citation_firstpage" content="1242807"></meta>
+        <script src="/assets/Chart.min-27bff060c3e539ceb22e763c8f2e9e10.js"></script>
+        <script src="/assets/jquery.content-chart-9c09bb79ba3fc3829b6478d0e114f737.js"></script>
+        
+    
+    
+    <!-- Google Analytics: No account ID (UA) found --><!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://www.googletagmanager.com/gtag/js?id=G-4605268525" class="optanon-category-2" type="text/plain" async=""></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4605268525', {'cookie_domain' : document.location.hostname, 'anonymize_ip': true });
+</script>
+    <script src="//assets.adobedtm.com/4a848ae9611a/ea83f870454d/launch-af020409b299.min.js" class="optanon-category-2" type="text/plain" async=""></script>
+    
+    <!-- Pendo: Disabled -->
+</head>
+
+<body class="">
+<div id="aria-polite" aria-live="polite"></div>
+
+<div id="aria-assertive" aria-live="assertive"></div>
+
+<nav aria-label="Skip to content" class="skip-content">
+    <ul>
+        <li>
+            <a href="#main-navigation" class="sr-only sr-only-focusable">Skip to main navigation</a>
+        </li>
+        
+            <li>
+                <a href="#main-search" class="sr-only sr-only-focusable">Skip to search</a>
+            </li>
+        
+        <li>
+            <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            
+        </li>
+    </ul>
+</nav>
+
+
+
+
+
+
+
+    <header class="header" id="page-header">
+        <div class="primary  ">
+            <div class="container">
+                
+                <a href="/en/" class="logo">
+                    
+                        <span class="sr-only">Coventry University Home</span>
+                        <img src="/skin/headerImage/" alt="Coventry University Logo"/>
+                    
+                </a>
+                
+                    <ul class="header-tools ">
+                        
+                            <li class="help-and-faq">
+                                <a href="https://share.coventry.ac.uk/staff/ps/research_office/pure/Pages/default.aspx" target="_blank">
+                                    <i class="icon icon-lifebuoy" aria-hidden="true"></i>
+                                    <span class="label">Help &amp; FAQ</span>
+                                </a>
+                            </li>
+                        
+                        
+                    </ul>
+                
+                
+                
+            </div>
+        </div>
+        
+        
+            <div class="subMenu">
+                <div class="secondary">
+                    <div class="container">
+                        <nav id="main-navigation" aria-label="Main navigation" class="content-navigation three-third">
+                            <ul class="has-overflow-navigation" data-value="More" role="menubar">
+                                <li class="" role="none">
+                                    <a href="/en/" role="menuitem" tabindex="-1">Home</a>
+                                </li>
+
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/organisations/"><span>Organisational Units</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/persons/"><span>Profiles</span></a>
+                                    </li>
+                                
+                                    <li class="selected" role="none">
+                                        <a class="portal_link" tabindex="0" role="menuitem" href="/en/publications/"><span>Research output</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/projects/"><span>Projects</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/studentTheses/"><span>Coventry awarded Student theses</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/activities/"><span>Activities</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/prizes/"><span>Prizes</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/datasets/"><span>Datasets</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/clippings/"><span>Press/Media</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/equipments/"><span>Equipment</span></a>
+                                    </li>
+                                
+                            </ul>
+                        </nav>
+                        
+                            <div class="header-search">
+                                
+<form action="/en/searchAll/index/deep-learning-classification-of-systemic-sclerosis-from-multi-sit" method="get"
+      class="search-form" id="search-everything">
+
+    <div class="global-search-wrapper">
+        <div class="global-search mini">
+            <div class="field-button-wrapper">
+                <div class="search-cell search-field">
+                    <label for="main-search" class="sr-only">Search by expertise, name or affiliation</label>
+                    <input id="main-search" class="search-field" value="" name="search"
+                           placeholder="Search..."/>
+                </div>
+
+                <div class="search-submit">
+                    <button type="submit" aria-label="Search">
+                        <i class="icon icon-magnifying-glass" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(function () {
+        var searchForm = $("#search-everything");
+        var searchField = $(".search-field", searchForm);
+        searchForm.on("submit", function () {
+            var field = searchField.find("input");
+            var searchString = field.val();
+
+            // No enter key submit nothing :-)
+            if (!searchString) return false;
+
+            if (searchString.length >= 200) {
+                searchForm.attr("method", "post");
+                searchForm.attr("action", "/en/concepts/copypaste/");
+                field.attr("name", "text");
+            }
+        });
+    });
+</script>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        
+    </header>
+
+    <main id="page-content">
+        
+    <div class="page-section page-section-publications page-section-publications-view ">
+
+        
+        
+        
+        
+        <section
+                class="page-section-header page-section-header-publications page-section-header-publications-view
+                 no-backdrop-image"
+                data-stickyheader=""
+                style="">
+            
+            
+        
+
+
+<div class="container">
+    <div class="row">
+        <div class="introduction no-metrics">
+            <div class="rendering"><h1><span>Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals</span></h1></div>
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_associatespersonsclassifiedportal rendering_contributiontojournal rendering_associatespersonsclassifiedportal rendering_contributiontojournal_associatespersonsclassifiedportal"><p class="relations persons">Sadaf Iqbal, Jaume Bacardit, Bridget Griffiths, <a rel="Person" href="https://pureportal.coventry.ac.uk/en/persons/john-allen" class="link person"><span>John Allen</span></a></div>
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_associatesorganisationsportal rendering_contributiontojournal rendering_associatesorganisationsportal rendering_contributiontojournal_associatesorganisationsportal"><ul class="relations organisations"><li class="researchgroup"><a rel="Organisation" href="https://pureportal.coventry.ac.uk/en/organisations/ihw-centre-for-intelligent-healthcare-cih" class="link"><span>Centre for Intelligent Healthcare</span></a></li></ul></div>
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_associatesexternalorganisationsportal rendering_contributiontojournal rendering_associatesexternalorganisationsportal rendering_contributiontojournal_associatesexternalorganisationsportal"><ul class="relations organisations"><li><a rel="UEOExternalOrganisation" href="#" class="link"><span>Newcastle University</span></a></li><li><a rel="UEOExternalOrganisation" href="#" class="link"><span>Newcastle upon Tyne NHS Hospitals Foundation Trust</span></a></li></ul></div>
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationcontenttyperendererportalng rendering_contributiontojournal rendering_publicationcontenttyperendererportalng rendering_contributiontojournal_publicationcontenttyperendererportalng"><p class="type"><span class="type_family">Research output<span class="type_family_sep">: </span></span><span class="type_classification_parent">Contribution to journal<span class="type_parent_sep"> › </span></span><span class="type_classification">Article</span><span class="type_classification"><span class="type_parent_sep"> › </span>peer-review</span></p></div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="publication-metrics" aria-label="Publication metrics section">
+        
+            <div class="metrics-container">
+                
+                    <div class="metrics-wrap metrics-top one">
+                        
+                        
+                            <div class="metric metrics-downloads">
+                                <span class="count tooltipped tooltipped-n" aria-label="Total downloads for this work">8</span>
+                                <span class="label">Downloads
+(Pure)</span>
+                            </div>
+                        
+                    </div>
+                
+                
+                    <div class="metrics-wrap metrics-bottom ">
+                        
+
+                        
+                            <div class="metric metric-altmetric">
+                                
+                            </div>
+                        
+                    </div>
+                
+            </div>
+        
+    </div>
+
+
+    </div>
+
+</div>
+<div class="subMenu">
+    <div class="content-profile-navigation">
+    <div class="container">
+        <nav role="navigation">
+            <ul class="has-overflow-navigation" role="menubar">
+                <li class="selected" role="none">
+                    <a class="portal_link" role="menuitem" href="/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit"><span>
+                        <i class="icon icon-publication" aria-hidden="true"></i>
+                        <span class="label">Overview</span>
+                    </span></a>
+                </li>
+                
+                    <li class="" role="none">
+                        <a class="portal_link" role="menuitem" href="/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit/fingerprints/"><span>
+                            <i class="icon icon-fingerprint" aria-hidden="true"></i>
+                            <span class="label">Fingerprint</span>
+                        </span></a>
+                    </li>
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+            </ul>
+        </nav>
+    </div>
+    </div>
+</div>
+
+    
+        </section>
+
+        <div id="main-content"
+             class="page-section-content page-section-content-publications page-section-content-publications-view   ">
+            
+        <section class="page-section content-relation-section">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="content-content publication-content">
+                        
+                        
+                            <h2 class="subheader">Abstract</h2>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_abstractportal rendering_contributiontojournal rendering_abstractportal rendering_contributiontojournal_abstractportal"><div class="textblock">Introduction: A pilot study assessing a novel approach to identify patients with Systemic Sclerosis (SSc) using deep learning analysis of multi-site photoplethysmography (PPG) waveforms (“DL-PPG”).<br /><br />Methods: PPG recordings having baseline, unilateral arm pressure cuff occlusion and reactive hyperaemia flush phases from 6 body sites were studied in 51 Controls and 20 SSc patients. RGB scalogram images were obtained from the PPG, using the continuous wavelet transform (CWT). 2 different pre-trained convolutional neural networks (CNNs, namely, GoogLeNet and EfficientNetB0) were trained to classify the SSc and Control groups, evaluating their performance using 10-fold stratified cross validation (CV). Their classification performance (i.e., accuracy, sensitivity, and specificity, with 95% confidence intervals) was also compared to traditional machine learning (ML), i.e., Linear Discriminant Analysis (LDA) and K-Nearest Neighbour (KNN).<br /><br />Results: On a participant basis DL-PPG accuracy, sensitivity and specificity for GoogLeNet were 83.1 (72.3–90.9), 75.0 (50.9–91.3) and 86.3 (73.7–94.3)% respectively, and for EfficientNetB0 were 87.3 (77.2–94.0), 80.0 (56.3–94.3) and 90.1 (78.6–96.7)%. The corresponding results for ML classification using LDA were 66.2 (53.9–77.0), 65.0 (40.8–84.6) and 66.7 (52.1–79.2)% respectively, and for KNN were 76.1 (64.5–85.4), 40.0 (19.1–63.9), and 90.2 (78.6–96.7)% respectively.<br /><br />Discussion: This study shows the potential of DL-PPG classification using CNNs to detect SSc. EfficientNetB0 gave an overall improved performance compared to GoogLeNet, with both CNNs performing better than the traditional ML methods tested. Our automatic AI approach, using transfer learning, could offer significant benefits for SSc diagnostics in a variety of clinical settings where low-cost portable and easy-to-use diagnostics can be beneficial</div></div>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_detailsportal rendering_contributiontojournal rendering_detailsportal rendering_contributiontojournal_detailsportal"><div class="article"><table class="properties"><tbody><tr class="language"><th scope="row">Original language</th><td>English</td></tr><tr><th scope="row">Article number</th><td>1242807</td></tr><tr class="numberofpages"><th scope="row">Number of pages</th><td>14</td></tr><tr><th scope="row">Journal</th><td><a rel="Journal" href="#" class="link"><span>Frontiers in Physiology</span></a></td></tr><tr><th scope="row">Volume</th><td>14</td></tr><tr class="digital_object_identifiers"><th scope="row">DOIs</th><td><ul class="relations digital_object_identifiers"><li><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.3389/fphys.2023.1242807" class="link"><span>https://doi.org/10.3389/fphys.2023.1242807</span></a> </li></ul></td></tr><tr class="status"><th scope="row">Publication status</th><td><span class="prefix">Published - </span><span class="date">13 Sept 2023</span></td></tr></tbody></table></div></div>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationbibliographicalnoteportalrenderer rendering_contributiontojournal rendering_publicationbibliographicalnoteportalrenderer rendering_contributiontojournal_publicationbibliographicalnoteportalrenderer"><h3 class="subheader">Bibliographical note</h3>t © 2023 Iqbal, Bacardit, Griffiths and Allen. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms<h3 class="subheader">Funder</h3>This research study was funded by the NIHR Newcastle Biomedical Research Centre (BRC) awarded to the Newcastle upon Tyne Hospitals NHS Foundation Trust and Newcastle University [RES/0100/7528/345, project PI (JA)]. This funding specifically supported the PhD studentship of SI and also resourced a high-performance computer and software for the work.</div>
+
+                        
+
+                        <div class="rendering rendering_keywordable rendering_expertkeywordgrouspbytypeportal rendering_keywordable_expertkeywordgrouspbytypeportal"><div class="keyword-group"><h2 class="subheader">Keywords</h2><ul class="relations keywords"><li class="userdefined-keyword"><span>deep learning</span></li><li class="userdefined-keyword"><span>machine learning</span></li><li class="userdefined-keyword"><span>photoplethysmography</span></li><li class="userdefined-keyword"><span>pulse</span></li><li class="userdefined-keyword"><span>Raynaud’s</span></li><li class="userdefined-keyword"><span>scleroderma</span></li><li class="userdefined-keyword"><span>systemic sclerosis</span></li></ul></div></div>
+
+                    </div>
+
+                    <div class="content-sidebar publication-sidebar">
+                        
+                        
+                            <h2 class="subheader">Access to Document</h2>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationaccessrenderer rendering_contributiontojournal rendering_publicationaccessrenderer rendering_contributiontojournal_publicationaccessrenderer"><ul class="dois"><li class="open-access"><div class="doi"><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.3389/fphys.2023.1242807" class="link"><span>10.3389/fphys.2023.1242807</span></a><span class="meta">Licence: <a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="http://creativecommons.org/licenses/by/4.0/" class="link">CC BY</a></span></div></li></ul><ul class="documents"><li class="open-access"><div class="document"><a onclick="if (this.href) {window.open(this.href)}; return false;" href="/files/76868799/Published.pdf" class="link document-link"><span>Published</span></a><span class="meta">Final published version, 2.79 MB</span><span class="meta">Licence: <a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="http://creativecommons.org/licenses/by/4.0/" class="link">CC BY</a></span></div></li></ul></div>
+
+                        
+
+                        
+
+                        
+                            <h2 class="subheader">Other files and links</h2>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationotherfilesandlinksrenderer rendering_contributiontojournal rendering_publicationotherfilesandlinksrenderer rendering_contributiontojournal_publicationotherfilesandlinksrenderer"><ul class="links"><li><div class="link"><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="http://www.scopus.com/inward/record.url?scp=85173006514&amp;partnerID=8YFLogxK" class="link"><span>Link to publication in Scopus</span></a></div></li></ul></div>
+
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_versioneddocumentspureportal rendering_contributiontojournal rendering_versioneddocumentspureportal rendering_contributiontojournal_versioneddocumentspureportal"><ul class="relations documents"></ul></div>
+
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+            <section class="page-section content-relation-section publication-fingerprint">
+                <div class="container">
+                    <div class="header">
+                        <h2 class="section-title">
+                            <i class="icon icon-fingerprint" aria-hidden="true"></i>
+                            <span class="title">Fingerprint</span>
+                        </h2>
+                        <span class="sub-title">
+                            Dive into the research topics of 'Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals'. Together they form a unique fingerprint.
+                        </span>
+                    </div>
+
+                    <ul class="publication-top-concepts" role="menubar">
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="423cefbc-670e-4b98-b01a-6f1e32afcba7"
+            data-concept-uuid="423cefbc-670e-4b98-b01a-6f1e32afcba7"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Systemic Sclerosis</span>
+            <span class="thesauri">Nursing and Health Professions</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="93b81045-b18e-4e64-91c7-aeadf3a85a5b"
+            data-concept-uuid="93b81045-b18e-4e64-91c7-aeadf3a85a5b"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Classification</span>
+            <span class="thesauri">Nursing and Health Professions</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="19652743-645d-4360-9826-eeb241579f44"
+            data-concept-uuid="19652743-645d-4360-9826-eeb241579f44"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Photoelectric Plethysmography</span>
+            <span class="thesauri">Nursing and Health Professions</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="c171d214-7153-44d1-a3c6-ee7a3f51011a"
+            data-concept-uuid="c171d214-7153-44d1-a3c6-ee7a3f51011a"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Systemic Scleroderma</span>
+            <span class="thesauri">Medicine and Dentistry</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="9a4916c0-4057-4a03-8d77-831bc434491e"
+            data-concept-uuid="9a4916c0-4057-4a03-8d77-831bc434491e"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Learning</span>
+            <span class="thesauri">Medicine and Dentistry</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="95ddb319-716d-4496-a51b-40b405e0d3f7"
+            data-concept-uuid="95ddb319-716d-4496-a51b-40b405e0d3f7"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2857143"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="28%">
+            <span class="rank"></span>
+            <span class="concept">Sensitivity and Specificity</span>
+            <span class="thesauri">Nursing and Health Professions</span>
+            <span class="value sr-only">28%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="7d740e12-2ab7-4589-83ad-007c4f1fac1c"
+            data-concept-uuid="7d740e12-2ab7-4589-83ad-007c4f1fac1c"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2857143"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="28%">
+            <span class="rank"></span>
+            <span class="concept">K Nearest Neighbor</span>
+            <span class="thesauri">Nursing and Health Professions</span>
+            <span class="value sr-only">28%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="58b31add-1ac4-4725-bade-0a534812ca64"
+            data-concept-uuid="58b31add-1ac4-4725-bade-0a534812ca64"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2857143"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="28%">
+            <span class="rank"></span>
+            <span class="concept">Discriminant Analysis</span>
+            <span class="thesauri">Nursing and Health Professions</span>
+            <span class="value sr-only">28%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                    </ul>
+                    <div class="footer">
+                        <div class="view-all align-center">
+                            <a class="portal_link btn-primary btn-large" href="/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit/fingerprints/"><span>
+                                View full fingerprint
+                                <i class="icon icon-right-open-mini" aria-hidden="true"></i>
+                            </span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        <section class="page-section cite">
+            <div class="container">
+                <section class="publication-cite" aria-labelledby="publications-cite-title">
+    <h2 class="subheader" id="publications-cite-title">Cite this</h2>
+    <ul class="tabs has-overflow-navigation" role="tablist" aria-label="Cite this">
+        
+            <li class="selected" role="tab" id="tab-0" aria-controls="cite-apa" tabindex="-1"  aria-selected="false" >
+                APA
+            </li>
+        
+            <li class="" role="tab" id="tab-1" aria-controls="cite-standard" tabindex="-1"  aria-selected="false" >
+                Standard
+            </li>
+        
+            <li class="" role="tab" id="tab-2" aria-controls="cite-harvard" tabindex="-1"  aria-selected="false" >
+                Harvard
+            </li>
+        
+            <li class="" role="tab" id="tab-3" aria-controls="cite-vancouver" tabindex="-1"  aria-selected="false" >
+                Vancouver
+            </li>
+        
+            <li class="" role="tab" id="tab-4" aria-controls="cite-author" tabindex="-1"  aria-selected="false" >
+                Author
+            </li>
+        
+            <li class="" role="tab" id="tab-5" aria-controls="cite-BIBTEX" tabindex="-1"  aria-selected="false" >
+                BIBTEX
+            </li>
+        
+            <li class="" role="tab" id="tab-6" aria-controls="cite-RIS" tabindex="-1"  aria-selected="false" >
+                RIS
+            </li>
+        
+    </ul>
+    <div class="tab-container">
+        
+            <div id="cite-apa" class="tab selected" role="tabpanel" aria-labelledby="tab-0" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_apa rendering_contributiontojournal rendering_apa rendering_contributiontojournal_apa">Iqbal, S., Bacardit, J., Griffiths, B.<a rel="Person" href="https://pureportal.coventry.ac.uk/en/persons/john-allen" class="link"><span>, &amp; Allen, J.</span></a> (2023). <a rel="ContributionToJournal" href="https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit" class="link"><span>Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals</span></a>. <a rel="Journal" href="#" class="link"><span><em>Frontiers in Physiology</em></span></a>, <em>14</em>, Article 1242807. <a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.3389/fphys.2023.1242807" class="link"><span>https://doi.org/10.3389/fphys.2023.1242807</span></a></div>
+            </div>
+        
+            <div id="cite-standard" class="tab " role="tabpanel" aria-labelledby="tab-1" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_standard rendering_contributiontojournal rendering_standard rendering_contributiontojournal_standard"><a rel="ContributionToJournal" href="https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit" class="link"><span><strong>Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals.</strong></span></a> / Iqbal, Sadaf; Bacardit, Jaume; Griffiths, Bridget et al. <br />In: <a rel="Journal" href="#" class="link"><span>Frontiers in Physiology</span></a>, Vol. 14, 1242807, 13.09.2023.<p class="type"><span class="type_family">Research output<span class="type_family_sep">: </span></span><span class="type_classification_parent">Contribution to journal<span class="type_parent_sep"> › </span></span><span class="type_classification">Article</span><span class="type_classification"><span class="type_parent_sep"> › </span>peer-review</span></p></div>
+            </div>
+        
+            <div id="cite-harvard" class="tab " role="tabpanel" aria-labelledby="tab-2" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_harvard rendering_contributiontojournal rendering_harvard rendering_contributiontojournal_harvard">Iqbal, S, Bacardit, J, Griffiths, B<a rel="Person" href="https://pureportal.coventry.ac.uk/en/persons/john-allen" class="link"><span> &amp; Allen, J</span></a> 2023, '<a rel="ContributionToJournal" href="https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit" class="link harvard_title"><span>Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals</span></a>', <a rel="Journal" href="#" class="link"><span><em>Frontiers in Physiology</em></span></a>, vol. 14, 1242807. <a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.3389/fphys.2023.1242807" class="link"><span>https://doi.org/10.3389/fphys.2023.1242807</span></a></div>
+            </div>
+        
+            <div id="cite-vancouver" class="tab " role="tabpanel" aria-labelledby="tab-3" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_vancouver rendering_contributiontojournal rendering_vancouver rendering_contributiontojournal_vancouver">Iqbal S, Bacardit J, Griffiths B<a rel="Person" href="https://pureportal.coventry.ac.uk/en/persons/john-allen" class="link"><span>, Allen J</span></a>. <span class="title"><a rel="ContributionToJournal" href="https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit" class="link"><span>Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals</span></a></span>. <a rel="Journal" href="#" class="link"><span>Frontiers in Physiology</span></a>. 2023 Sept 13;14:1242807. doi: 10.3389/fphys.2023.1242807</div>
+            </div>
+        
+            <div id="cite-author" class="tab " role="tabpanel" aria-labelledby="tab-4" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_author rendering_contributiontojournal rendering_author rendering_contributiontojournal_author">Iqbal, Sadaf ; Bacardit, Jaume ; Griffiths, Bridget et al. / <a rel="ContributionToJournal" href="https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit" class="link"><span><strong>Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals</strong></span></a>. In: <a rel="Journal" href="#" class="link"><span>Frontiers in Physiology</span></a>. 2023 ; Vol. 14.</div>
+            </div>
+        
+            <div id="cite-BIBTEX" class="tab " role="tabpanel" aria-labelledby="tab-5" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_bibtex rendering_contributiontojournal rendering_bibtex rendering_contributiontojournal_bibtex"><div>@article{8c20072ef3354976af9801a901e2a3d8,</div><div>  title     = "Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals",</div><div>  abstract  = "Introduction: A pilot study assessing a novel approach to identify patients with Systemic Sclerosis (SSc) using deep learning analysis of multi-site photoplethysmography (PPG) waveforms (“DL-PPG”).Methods: PPG recordings having baseline, unilateral arm pressure cuff occlusion and reactive hyperaemia flush phases from 6 body sites were studied in 51 Controls and 20 SSc patients. RGB scalogram images were obtained from the PPG, using the continuous wavelet transform (CWT). 2 different pre-trained convolutional neural networks (CNNs, namely, GoogLeNet and EfficientNetB0) were trained to classify the SSc and Control groups, evaluating their performance using 10-fold stratified cross validation (CV). Their classification performance (i.e., accuracy, sensitivity, and specificity, with 95% confidence intervals) was also compared to traditional machine learning (ML), i.e., Linear Discriminant Analysis (LDA) and K-Nearest Neighbour (KNN).Results: On a participant basis DL-PPG accuracy, sensitivity and specificity for GoogLeNet were 83.1 (72.3–90.9), 75.0 (50.9–91.3) and 86.3 (73.7–94.3)% respectively, and for EfficientNetB0 were 87.3 (77.2–94.0), 80.0 (56.3–94.3) and 90.1 (78.6–96.7)%. The corresponding results for ML classification using LDA were 66.2 (53.9–77.0), 65.0 (40.8–84.6) and 66.7 (52.1–79.2)% respectively, and for KNN were 76.1 (64.5–85.4), 40.0 (19.1–63.9), and 90.2 (78.6–96.7)% respectively.Discussion: This study shows the potential of DL-PPG classification using CNNs to detect SSc. EfficientNetB0 gave an overall improved performance compared to GoogLeNet, with both CNNs performing better than the traditional ML methods tested. Our automatic AI approach, using transfer learning, could offer significant benefits for SSc diagnostics in a variety of clinical settings where low-cost portable and easy-to-use diagnostics can be beneficial",</div><div>  keywords  = "deep learning, machine learning, photoplethysmography, pulse, Raynaud{\textquoteright}s, scleroderma, systemic sclerosis",</div><div>  author    = "Sadaf Iqbal and Jaume Bacardit and Bridget Griffiths and John Allen",</div><div>  note      = "t {\textcopyright} 2023 Iqbal, Bacardit, Griffiths and Allen. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms",</div><div>  year      = "2023",</div><div>  month     = sep,</div><div>  day       = "13",</div><div>  doi       = "10.3389/fphys.2023.1242807",</div><div>  language  = "English",</div><div>  volume    = "14",</div><div>  journal   = "Frontiers in Physiology",</div><div>  issn      = "1664-042X",</div><div>  publisher = "Frontiers Media",</div><p>}</p></div>
+            </div>
+        
+            <div id="cite-RIS" class="tab " role="tabpanel" aria-labelledby="tab-6" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_ris rendering_contributiontojournal rendering_ris rendering_contributiontojournal_ris"><p>TY  - JOUR</p><p>T1  - Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals</p><p>AU  - Iqbal, Sadaf</p><p>AU  - Bacardit, Jaume</p><p>AU  - Griffiths, Bridget</p><p>AU  - Allen, John</p><p>N1  - t © 2023 Iqbal, Bacardit, Griffiths and Allen. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms</p><p>PY  - 2023/9/13</p><p>Y1  - 2023/9/13</p><p>N2  - Introduction: A pilot study assessing a novel approach to identify patients with Systemic Sclerosis (SSc) using deep learning analysis of multi-site photoplethysmography (PPG) waveforms (“DL-PPG”).Methods: PPG recordings having baseline, unilateral arm pressure cuff occlusion and reactive hyperaemia flush phases from 6 body sites were studied in 51 Controls and 20 SSc patients. RGB scalogram images were obtained from the PPG, using the continuous wavelet transform (CWT). 2 different pre-trained convolutional neural networks (CNNs, namely, GoogLeNet and EfficientNetB0) were trained to classify the SSc and Control groups, evaluating their performance using 10-fold stratified cross validation (CV). Their classification performance (i.e., accuracy, sensitivity, and specificity, with 95% confidence intervals) was also compared to traditional machine learning (ML), i.e., Linear Discriminant Analysis (LDA) and K-Nearest Neighbour (KNN).Results: On a participant basis DL-PPG accuracy, sensitivity and specificity for GoogLeNet were 83.1 (72.3–90.9), 75.0 (50.9–91.3) and 86.3 (73.7–94.3)% respectively, and for EfficientNetB0 were 87.3 (77.2–94.0), 80.0 (56.3–94.3) and 90.1 (78.6–96.7)%. The corresponding results for ML classification using LDA were 66.2 (53.9–77.0), 65.0 (40.8–84.6) and 66.7 (52.1–79.2)% respectively, and for KNN were 76.1 (64.5–85.4), 40.0 (19.1–63.9), and 90.2 (78.6–96.7)% respectively.Discussion: This study shows the potential of DL-PPG classification using CNNs to detect SSc. EfficientNetB0 gave an overall improved performance compared to GoogLeNet, with both CNNs performing better than the traditional ML methods tested. Our automatic AI approach, using transfer learning, could offer significant benefits for SSc diagnostics in a variety of clinical settings where low-cost portable and easy-to-use diagnostics can be beneficial</p><p>AB  - Introduction: A pilot study assessing a novel approach to identify patients with Systemic Sclerosis (SSc) using deep learning analysis of multi-site photoplethysmography (PPG) waveforms (“DL-PPG”).Methods: PPG recordings having baseline, unilateral arm pressure cuff occlusion and reactive hyperaemia flush phases from 6 body sites were studied in 51 Controls and 20 SSc patients. RGB scalogram images were obtained from the PPG, using the continuous wavelet transform (CWT). 2 different pre-trained convolutional neural networks (CNNs, namely, GoogLeNet and EfficientNetB0) were trained to classify the SSc and Control groups, evaluating their performance using 10-fold stratified cross validation (CV). Their classification performance (i.e., accuracy, sensitivity, and specificity, with 95% confidence intervals) was also compared to traditional machine learning (ML), i.e., Linear Discriminant Analysis (LDA) and K-Nearest Neighbour (KNN).Results: On a participant basis DL-PPG accuracy, sensitivity and specificity for GoogLeNet were 83.1 (72.3–90.9), 75.0 (50.9–91.3) and 86.3 (73.7–94.3)% respectively, and for EfficientNetB0 were 87.3 (77.2–94.0), 80.0 (56.3–94.3) and 90.1 (78.6–96.7)%. The corresponding results for ML classification using LDA were 66.2 (53.9–77.0), 65.0 (40.8–84.6) and 66.7 (52.1–79.2)% respectively, and for KNN were 76.1 (64.5–85.4), 40.0 (19.1–63.9), and 90.2 (78.6–96.7)% respectively.Discussion: This study shows the potential of DL-PPG classification using CNNs to detect SSc. EfficientNetB0 gave an overall improved performance compared to GoogLeNet, with both CNNs performing better than the traditional ML methods tested. Our automatic AI approach, using transfer learning, could offer significant benefits for SSc diagnostics in a variety of clinical settings where low-cost portable and easy-to-use diagnostics can be beneficial</p><p>KW  - deep learning</p><p>KW  - machine learning</p><p>KW  - photoplethysmography</p><p>KW  - pulse</p><p>KW  - Raynaud’s</p><p>KW  - scleroderma</p><p>KW  - systemic sclerosis</p><p>UR  - http://www.scopus.com/inward/record.url?scp=85173006514&amp;partnerID=8YFLogxK</p><p>U2  - 10.3389/fphys.2023.1242807</p><p>DO  - 10.3389/fphys.2023.1242807</p><p>M3  - Article</p><p>SN  - 1664-042X</p><p>VL  - 14</p><p>JO  - Frontiers in Physiology</p><p>JF  - Frontiers in Physiology</p><p>M1  - 1242807</p><p>ER  - </p></div>
+            </div>
+        
+
+        <script>
+            $(function() {
+                $(".tab-container .rendering a:not([href^='http://dx.doi.org'])").contents().unwrap();
+            });
+        </script>
+    </div>
+</section>
+
+            </div>
+        </section>
+        <script>
+            //gets doi url
+            var doi = $('div.doi').text();
+            if (doi != null) {
+                var xhr = new XMLHttpRequest();
+                var api = "45c5f8f0dbbb1aefef3d2e7f363df573";
+                var url = "https://api.elsevier.com/content/article/entitlement/doi/" + doi + "?apiKey=" + api;
+                xhr.open('GET', url);
+                xhr.onload = function () {
+                    //checks for premission if we have access to this doi
+                    if (xhr.status === 200) {
+                        //reads the xml and checks if 'entitled is true'
+                        myXmlReader(xhr);
+                        //adds hover text to doi
+                        addHover();
+                    }
+                };
+                xhr.send();
+
+                function myXmlReader(xml) {
+                    var xmlDoc;
+                    xmlDoc = xml.responseText.toString();
+                    var n = xmlDoc.includes('entitled":true');
+                    if (n) {
+                        $("div.doi").addClass("doiAccess");
+                    }
+                }
+
+                function addHover() {
+                    $("div.doi.doiAccess")[0].setAttribute("title", "You have access to view this document");
+                }
+            }
+        </script>
+        <script>
+    $(function () {
+        if($('.publication-sidebar').length > 0){
+            if($('a.document-link').length === 0){
+                $(".metrics-top").addClass("one");
+                $('div.metrics-downloads').remove();
+            }
+        }
+    });
+
+    function plumXError(e) {
+        $(e).closest('.metric-plum-x').closest('.metrics-bottom').addClass('one');
+        $(e).closest('.metric-plum-x').remove();
+    }
+    $('div.altmetric-embed').on('altmetric:hide', function () {
+        $(this).closest('.metric-altmetric').closest('.metrics-bottom').addClass('one');
+        $(this).closest('.metric-altmetric').remove();
+    });
+</script>
+        
+
+
+
+    
+    
+    
+    
+    
+    
+
+    
+        
+        
+        
+    
+
+    <div class="share-box">
+        <ul>
+            <li class="icon-share"></li>
+            <li><a aria-label="Share on Facebook"
+                   href="https://www.facebook.com/sharer.php?u=https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.3389%2Ffphys.2023.1242807&p[summary]=Check+out+this+research+output+at+Coventry+University%3A+Deep+learning+classification+of+systemic+sclerosis+from+multi-site+photoplethysmography+signals"
+                   class="icon-facebook"
+                   onclick="window.location.origin('https://www.facebook.com/sharer.php?u=https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.3389%2Ffphys.2023.1242807&p[summary]=Check+out+this+research+output+at+Coventry+University%3A+Deep+learning+classification+of+systemic+sclerosis+from+multi-site+photoplethysmography+signals', 'Facebook', 'width=600,height=600,scrollbars=no,resizable=no');
+                   return false;" target="popup"></a></li>
+            <li><a aria-label="Share on Twitter"
+                   href="https://twitter.com/intent/tweet?url=https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.3389%2Ffphys.2023.1242807&text=Check+out+this+research+output+at+Coventry+University%3A+Deep+learning+classification+of+systemic+sclerosis+from+multi-site+photoplethysmography+signals"
+                   onclick="window.location.origin('https://twitter.com/intent/tweet?url=https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.3389%2Ffphys.2023.1242807&text=Check+out+this+research+output+at+Coventry+University%3A+Deep+learning+classification+of+systemic+sclerosis+from+multi-site+photoplethysmography+signals doi%3A10.3389%2Ffphys.2023.1242807', 'Twitter', 'width=600,height=600,scrollbars=no,resizable=no');
+                   return false;" class="twitter" target="popup"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 300 271">
+                    
+                    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"></path>
+                </svg></a></li>
+            <li><a aria-label="Share on LinkedIn"
+                   href="https://www.linkedin.com/shareArticle?mini=true&url=https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.3389%2Ffphys.2023.1242807&summary=Check+out+this+research+output+at+Coventry+University%3A+Deep+learning+classification+of+systemic+sclerosis+from+multi-site+photoplethysmography+signals"
+                   onclick="window.location.origin('https://www.linkedin.com/shareArticle?mini=true&url=https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.3389%2Ffphys.2023.1242807&summary=Check+out+this+research+output+at+Coventry+University%3A+Deep+learning+classification+of+systemic+sclerosis+from+multi-site+photoplethysmography+signals doi%3A10.3389%2Ffphys.2023.1242807', 'LinkedIn', 'width=600,height=600,scrollbars=no,resizable=no');
+                   return false;" class="icon-linkedin" target="popup"></a></li>
+            <li><a aria-label="Share by email"
+                   href="mailto:?subject=Deep%20learning%20classification%20of%20systemic%20sclerosis%20from%20multi-site%20photoplethysmography%20signals&body=Check%20out%20this%20research%20output%20at%20Coventry%20University%3A%20Deep%20learning%20classification%20of%20systemic%20sclerosis%20from%20multi-site%20photoplethysmography%20signals | https://pureportal.coventry.ac.uk/en/publications/deep-learning-classification-of-systemic-sclerosis-from-multi-sit?utm_source=email&amp;utm_medium=email&amp;utm_campaign=sharelink" class="icon-email"></a></li>
+        </ul>
+    </div>
+
+
+
+
+    
+        </div>
+    </div>
+
+    <div id="new-modal-overlay"></div>
+    <script>
+        $(document).ready(function () {
+            runToolTips();
+        });
+    </script>
+    
+    </main>
+
+    <footer id="page-footer" class="main-footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="content-navigation three-third">
+                    <div dir="ltr" class="footer-columns">
+                        
+                        <div class="footer-column">
+                            <p>
+                                Powered by <a href="http://www.elsevier.com/online-tools/research-intelligence/products-and-services/pure">Pure</a>, <a href="http://www.scopus.com/">Scopus</a> & <a href="http://www.elsevier.com/online-tools/research-intelligence/products-and-services/elsevier-fingerprint-engine">Elsevier Fingerprint Engine&trade;</a> 
+                            </p>
+
+                            <p>
+                                All content on this site: Copyright &copy; 2024 <a href="http://www.elsevier.com">Elsevier B.V.</a> or its licensors and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the Creative Commons licensing terms apply
+                            </p>
+
+                            <p>We use cookies to help provide and enhance our service and tailor content. By continuing you agree to the <a href="/en/about/cookies/">use of cookies</a></p>
+                            <p><button id="ot-sdk-btn" class="ot-sdk-show-settings"></button></p>
+                            
+                                <p><a href="https://pure.coventry.ac.uk/admin/workspace.xhtml">Log in to Pure</a></p>
+                            
+                            <p></p>
+                        </div>
+
+                        <div class="footer-column">
+                            
+                                <p><a href="https://www.coventry.ac.uk/gdpr-and-data-protection/privacy-notices/" target="_blank">Coventry University data protection policy</a></p>
+                            
+                            
+                                <p><a href="/en/web-accessibility/" rel="nofollow" target="_blank">About web accessibility</a></p>
+                            
+
+                            <p>
+                                
+                            </p>
+
+                            <p>
+                                
+                            </p>
+
+                            <p>
+                                <a href="https://elsevier.responsibledisclosure.com/hc/en-us/requests/new" target="_blank" rel="nofollow">Report vulnerability</a>
+                            </p>
+                        </div>
+
+                        
+                            <div class="footer-column">
+                                
+                                    
+                                        <p><a href="mailto:enquiries.pure@coventry.ac.uk"> Contact us</a></p>
+                                    
+                                
+
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="back-to-top">
+            <a href="#" class="back-to-top" aria-label="Go to top"><i class="icon icon-up-open"></i></a>
+        </div>
+    </footer>
+
+
+    <script src="//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+
+    
+
+    
+
+
+<script>window.appData = window.appData || [];</script><script type="text/javascript">
+try {(function() {
+appData.push({...{"page":{"businessUnit":"ELS:RP:ST","cmsName":"Pure Portal","environment":"prod","language":"en","loadTime":"253","loadTimestamp":"1714839643480","name":"pure portal:publications:view","noTracking":"false","productName":"PR","type":"CP-CA"},"visitor":{"accountId":"","accountName":"pr:Coventry University","ipAddress":"","accessType":"pr:ANON_GUEST","loginStatus":"anonymous"},"content":[{"id":"8c20072e-f335-4976-af98-01a901e2a3d8","title":"Deep learning classification of systemic sclerosis from multi-site photoplethysmography signals","recordType":"researchoutput"}]}, event: "pageLoad"});})();} catch(e) {if(console) { console.log(e) } }</script>
+<script>function trackPage(){try {(function() {
+window.appData = window.appData || [];
+})();} catch(e) {if(console) { console.log(e) } }}</script>
+
+</body>
+</html>
+

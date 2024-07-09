@@ -1,0 +1,199 @@
+version: "3.1"
+
+stories:
+- story: Say Hello 
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: Responder a Intenções Fora do Fluxo Principal
+  steps:
+  - intent: out
+  - action: utter_out
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: guarda nome do user
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_names
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: mariana
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: almeida
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots_values
+
+- story: Relatar acidente de carro
+  steps:
+  - intent: informar_acidente
+  - action: utter_informar_feridos
+
+
+- story: Primeiros Socorros
+  steps:
+  - intent: primeiros
+  - action: utter_tipo_lesao
+
+- story: Responder "Sim" - Existem feridos no local?
+  steps:
+  - intent: informar_feridos_s
+  - action: utter_consciente_inconsciente
+
+
+- story: Responder "Consciente" - A vítima está consciente ou inconsciente?
+  steps:
+  - intent: pessoa_consciente
+  - action: utter_emergencia_pessoa_consciente
+  - action: utter_tipo_lesao
+
+- story: Responder com primeiros soccoros fratura
+  steps:
+  - intent: informar_fratura
+  - action: utter_primeiros_socorros_fratura
+  - action: utter_112
+  
+
+- story: Responder a nenhuma lesao
+  steps:
+  - intent: informar_nenhuma
+  - action: utter_primeiros_socorros_nenhuma
+  - action: utter_112
+  
+
+- story: Responder com primeiros soccoros corte
+  steps:
+  - intent: informar_corte
+  - action: utter_primeiros_socorros_corte
+  - action: utter_112
+
+
+- story: Responder com primeiros soccoros stress
+  steps:
+  - intent: informar_stress
+  - action: utter_primeiros_socorros_stress
+  - action: utter_112
+ 
+
+- story: Responder com primeiros soccoros outro
+  steps:
+  - intent: informar_outro
+  - action: utter_primeiros_socorros_outro
+  - action: utter_112
+  
+
+- story: Responder com primeiros soccoros choque
+  steps:
+  - intent: informar_choque
+  - action: utter_primeiros_socorros_choque
+  - action: utter_112
+  
+
+- story: Responder "Inconsciente" - A vítima está consciente ou inconsciente?
+  steps:
+  - intent: pessoa_inconsciente
+  - action: utter_posicao_lateral_segurança
+  - action: utter_pergunta_respiracao
+
+- story: Pessoa respira - aconselhar a chamar 112 para tratar dela
+  steps:
+  - intent: informar_respira
+  - action: utter_112
+  
+
+- story: Pessoa nao respira - reanimacao
+  steps:
+  - intent: informar_nao_respira
+  - action: utter_reanimacao
+
+- story: Reanimar adulto
+  steps:
+  - intent: rean_adulto
+  - action: utter_rean_adulto
+  - action: utter_112
+  
+- story: Reanimar crianca
+  steps:
+  - intent: rean_crianca
+  - action: utter_rean_crianca
+  - action: utter_112
+  
+
+- story: Reanimar bebe
+  steps:
+  - intent: rean_bebe
+  - action: utter_rean_bebe
+  - action: utter_112
+ 
+
+
+- story: Responder "Não" - Existem feridos no local?
+  steps:
+  - intent: informar_feridos_n
+  - action: utter_no_injuries_response
+  
+- story: Sempre que alguem perguntar como colocar na posicao lateral de seguranca.
+  steps:
+  - intent: posicao_lateral_segurança
+  - action: utter_posicao_lateral_segurança
+
+- story: como fazer reanimacao a uma pessoa
+  steps:
+  - intent: reanimacao
+  - action: utter_reanimacao
+
+- story: sempre q perguntares pessoa inconsciente
+  steps:
+  - intent: emergencia_pessoa_inconsciente
+  - action: utter_posicao_lateral_segurança
+  - action: utter_pergunta_respiracao
+
+- story: sempre q perguntares pessoa consciente
+  steps:
+  - intent: emergencia_pessoa_consciente
+  - action: utter_emergencia_pessoa_consciente
+  - action: utter_tipo_lesao
+
+- story: nao quer chamar o 112
+  steps:
+  - intent: nao_quero
+  - action: utter_nao_ligar
+
+- story: questionario 112
+  steps:
+  - intent: ligar_112
+  - action: utter_pergunta_nome_vitima
+  - intent: nome_vitima
+    entities:
+    - inem: "angelo"
+  - action: utter_pergunta_sexo_vitima
+  - intent: sexo_vitima
+    entities:
+    - inem: "feminino"
+  - action: utter_pergunta_idade_vitima
+  - intent: idade_vitima
+    entities:
+    - inem: "22 anos"
+  - action: utter_pergunta_estado_consciencia
+  - intent: estado_consciencia
+    entities:
+    - inem: "sim"
+  - action: utter_pergunta_localizacao_acidente
+  - intent: localizacao
+    entities:
+    - inem: "Rua das Palmeiras n 12, 5470-311, Mourilhe"
+  - action: action_extrair_dados_vitima
+  - action: action_get_slot_values
+  - action: utter_chamada
